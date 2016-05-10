@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Grunt Tutorial</title>
+
+    <meta name="description" content="A tutorial on using Grunt and Sass">
+     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
+    <link href='https://fonts.googleapis.com/css?family=Candal' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+                <h1 class="wow fadeInLeftBig title text-center" data-wow-duration="3s">IMPROVING WORKFLOW WITH <br> <span>Grunt</span> and
+                 <span>SASS</span> </h1>
+
+                <div class="wow sass fadeInLeft" data-wow-delay='2.25s'>
+                    <img class='img' src="img/sass.png">
+                </div>
+
+                <div class="wow pig fadeInDownBig">
+                    <img src="img/grunt.jpg">
+                </div>
+
+                <div id="boom">
+                    <img src="img/slow.jpg">
+                </div>
+
+
+                <div class="jumbotron">
+                    <header>
+                        <h2 class="subTitle">
+					What is Grunt and Sass?
+				</h2>
+                        <p>
+                            If you have a big project and a lot of code to write, then it makes sense to automate tasks and save time. Grunt is a called a task runner which means it automates tasks. By simply pressing save, you can have it minify your JavaScript, compile your Sass code into CSS and check your code for any errors all in a few seconds. It also helps teams on a single project by having them all work with unified standards. It is a command line tool and I will be using the terminal on a mac laptop so PC users can only observe here. Grunt allows you to install plugins via the terminal and there are over 5000 plugins to install. You can go to the grunt website <a href="http://gruntjs.com/plugins">here</a> and check them out.
+                            <br>
+                            <br> In this tutorial, I will only be working with a Sass plugin and a couple more that involve basic JavaScript and HTML. I'm assuming you already know that Sass is a pre-processing language that extends your CSS. If you're not familiar with it, it's easy to learn and you can find out more about using Sass from their website <a href="http://sass-lang.com/">here</a>. Another thing I will assume is that you are using a mac. I have nothing against pc users, but I'm a believer that once you go mac, you can never go back. I'll be using sublime as the text editor but any editor should be fine.
+
+
+                        </p>
+
+
+                    </header>
+                </div>
+            </div>
+            <!--col-->
+        </div>
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h2 class="subTitle">Initial Setup<h2>
+				<p> The first first thing you need to do is create a folder with your basic HTML index file.   Next, you need to be bring that directory up in the command line terminal. Navigate to your new folder by typing in  <br><br><kbd>cd /desktop/the name of folder </kbd>  <br><br> <i>Note: you could also type cd / and just drag your folder into the terminal and press enter if you want to save about 5.2 seconds</i><br><br>
+
+
+					In that folder, we will need to create a file named package.json. This file will be a documentation for what dependencies  
+ your project will use and will load the plugins required by Grunt. This can be created in the command line or in your text editor. I prefer doing it via the command line by typing in the command <br><br><kbd>npm init</kbd><br><br> You will then be walked through setting up the file with questions. The name and version fields are required, the rest is optional and you can skip them but make sure the entry point is index.html. It should look like the image below.
+
+
+					<br><br><img class="rightImg" src="img/ss1.png"><br><br>
+
+					
+				
+				</p>
+		<p> 
+Grunt runs on Node.js so you will need to install it. You can check if you have node by typing in the command line <br><br><kbd> node -v</kbd><br><br> You can get the latest version of Node.js <a"https://nodejs.org/en/">here</a> We will be using the node package manager to install packages and it proceeds each plugin with the "npm" abbreviation.  
+
+We'll also be using Sass which runs on Ruby on Rails which is pre-installed on Macs. You can install Sass with this command <br><br><kbd> gem install sass
+
+	
+</kbd> <br><br>
+ If you get a permission error, many tutorials will tell you to type in sudo first and it will work. Sudo stands for super user and it gives you the power to make changes on your laptop like you are the main/root user.  If the you're using a personal computer, you can give yourself this power all the time by typing in this command and then your password.  <br><br><kbd> sudo chown -R $USER /usr/local </kbd> <br><br>To check that you are the owner of the subfolders of user local, type in <br><br><kbd>ls -l /usr/local</kbd><br><br> Now you can install things like a mack daddy. 
+
+			In order to use grunt, you need to use the grunt command line interface tool, aka CLI. You can install it by typing in the command line 
+			<br><br><kbd>
+			npm install -g grunt-cli
+			</kbd><br><br>
+			 </p>
+
+<p>
+We now need to install packages/plugins into the project. Just to be clear, we need to install what we need for every project because we are installing locally and you will have a version of grunt for every install.  
+We will now install the following: grunt, sass , uglify( a JavaScript compressor) and a watch package (watches changes you make to your files).
+<br><br>
+First, install grunt itself: <br><br><kbd>npm install grunt --save-dev</kbd> <br><br>
+
+Next, install Sass: <br><br><kbd>npm install grunt-contrib-sass --save-dev</kbd> <br><br>
+			 
+Next, install Uglify:<br><br> <kbd> npm install grunt-contrib-uglify --save-dev</kbd> <br><br>
+
+Lastly, install Watch::<br><br> <kbd> npm install grunt-contrib-watch --save-dev</kbd><br><br>
+
+You'll notice that if you go back into your package.json file, you will see the name devDependencies has been added with the packages and their version number. 			 	
+
+
+</p>
+
+
+		
+				</p>
+				</div>
+			 </div>
+            <!--col-->
+        </div>
+        <!-- row -->
+
+			<div class="row">
+		<div class="col-md-12">
+
+				<div class="jumbotron">
+				<h2 class="subTitle"> Configuring Files</h2>
+                    <div data-wow-delay=".25s" class="wow flipInZ fadeInLeft">
+                        Wrapper Function
+                        <br><i class="fa fa-long-arrow-right" style="font-size:20px"></i> </div>
+
+                    <p>
+                        We now need to enable our packages/plugins in the project with a file called Gruntfile.js. This is where we set the configuration of the project and tell grunt what tasks it will be doing. This file needs a special object format and its easy to make a mistake so instead of typing this out, lets copy and paste my example gruntfile.js. You can
+                        always change files or folder names if your setup is different then mine or in the future if you want to use different plugins.
+
+                        <br>
+                        <br>
+                        <code><pre>				
+module.exports = function(grunt) {
+
+    grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
+			uglify: {
+					my_target: {
+						files: {
+							'js/script.js': ['components/js/*.js']
+						}
+					} 
+			} ,
+
+		sass: {
+		  dev: {
+		    options: {
+		      style: 'expanded',
+		      sourcemap: 'none',
+		    },
+		    files: {
+		      'css/main.css': 'components/sass/styles.scss'
+		    }
+		  }
+		},
+
+		watch: {
+			options: {livereload: true},
+			css: {
+				files: '**/*.scss',
+				tasks: ['sass']
+			},
+			scripts: {
+				files: ['**/*.js'],
+				tasks: ['uglify']
+			},
+			html: {
+					files: ['*html']
+				}
+
+		},
+
+	});
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.registerTask('default',['watch']);
+
+}	
+
+					</pre></code>
+
+                        <div data-wow-delay=".25s" class="wow flipInY wHighlight">
+                            Loads Tasks <i class="fa fa-long-arrow-right" style="font-size:20px"></i> </div>
+
+                        <div data-wow-delay=".25s" class="wow flipInX wHighlight">
+                            Coinfiguration Files <i class="fa fa-arrows-v" style="font-size:240px"></i> </div>
+
+                    </p>
+
+
+                </div>
+            </div>
+            <!--col-->
+        </div>
+        <!-- row -->
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h2 class="subTitle">What's Happening</h2>
+                    <p>
+                        A quick overview of what the file consists of is a wrapper function that all of the code goes in, a configuration section that directs grunt to what folders and files it needs to go to and a task loading section that loads whatever plugins you have installed. I have my sass folder in a components folder. I also have a javascript folder in a components folder. The purpose of these folders is to separate my pre-compiled css and javascript into one place and then have grunt go in and do the work of minifying and converting sass into css. You can name the folders whatever you like but they need to match the gruntfile.js document.
+                        <br>
+                        <br>The LiveReload application does not need to be installed but you do need to configure it in your gruntfile. It works by handling all requests to port 35729 on whatever computer it is running on. It will look for a script tag in your project and a hostname and port to connect to so you will need to include the following script code in your index file before the closing body tag:
+                        <br>
+                        <br><kbd> 
+"http://localhost:35729/livereload.js" 
+<br><br></kbd> This will allow the reload application to be injected into your web page so every time you save your index or .scss file, the browser will automatically refresh. If this is all done correctly, you should be ready to use the tasks by simply typing grunt in the terminal and you should see <strong>running "watch" task </strong> in the terminal. Now any changes you make in your project will be detected and the browser should refresh on every save command. If you ever have a syntax error, be ready to see an image like the one below that will show you the exact line of code that the error is right in your index file.
+                        <br>
+                        <br>
+                        <img src="img/ss3.png">
+                        <br>
+                        <br> And the last thing I'd like to mention is the node_modules folder that should have been created earlier. If you want to push your files to github, there is absolutely no need to include the modules in the git repository. The way we prevent them from being pushed is to create a file called .gitignore. When you create this file, you'll get a warning about the peroid being in the front; ignore it. In the file, type in and save
+                        <br>
+                        <br><code>
+	node_modules
+</code>
+                        <br>
+                        <br> Now all the modules will be ignored when making a commit. I'm sure there is more that I could have covered but I think that with what we have here, you're ready to roll and make that awesome project you're working on faster.
+                    </p>
+
+                </div>
+     
+                <footer>
+                    <p>I'm <a href="http://marvelmoe.com/">Moe </a>and I love to code</p> Find me @<br>
+                                                    <ul class="social-icons">
+                                                        <li><a href="https://www.facebook.com/moe.himed" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://twitter.com/MoeHimed" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://github.com/MarvelMoe" class="social-icon"> <i class="fa fa-github"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/in/moe-himed-5b068717" class="social-icon"> <i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                </footer>
+            </div>
+            <!--col-->
+        </div>
+        <!-- row -->
+    </div>
+    <!-- container -->
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+
+</body>
+
+</html>

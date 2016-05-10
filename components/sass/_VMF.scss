@@ -1,0 +1,43 @@
+
+/*VARIABLES
+============================================= */
+$pink: #cc6699;
+$orange: #ffa600;
+$black: #000;
+$brown: #4b2f16;
+
+$list:  ($orange),
+        ($pink);
+
+
+
+
+/* MIXINS
+============================================= */
+
+@mixin gradient($direction, $list) { 
+  background: -webkit-linear-gradient($direction, $list);
+ 
+}
+
+
+
+
+/* FUNCTIONS
+============================================= */
+
+@function text-color($list){
+   $text-list:();
+   @each $color, $percentage in $list {   
+    @if lightness($color) > 50% {
+
+     $text-list:append($text-list, $black $percentage, comma);    
+    } @else {
+        $text-list:append($text-list, $brown $percentage, comma);
+     }        
+	}
+  @return $text-list;
+} 
+
+
+
